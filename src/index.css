@@ -278,18 +278,20 @@ header .logo {
 footer {
   background: var(--footer-bg);
   color: white;
-  padding: 4rem 2rem;
+  padding: 2rem 1rem; /* Reduced from 4rem 2rem */
 }
 
 footer h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* Reduced spacing */
   font-weight: 600;
+  font-size: 1rem; /* Slightly smaller heading */
 }
 
 footer a {
   color: #cbd5e1;
   text-decoration: none;
   transition: color 0.2s;
+  font-size: 0.9rem; /* Reduced font size */
 }
 
 footer a:hover {
@@ -299,10 +301,11 @@ footer a:hover {
 footer .bottom {
   text-align: center;
   border-top: 1px solid #1e293b;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  font-size: 0.9rem;
+  margin-top: 1.5rem; /* Slightly reduced */
+  padding-top: 0.75rem; /* Slightly reduced */
+  font-size: 0.8rem; /* Reduced font size */
 }
+
 
 /* Hero Search Section */
 .hero-section {

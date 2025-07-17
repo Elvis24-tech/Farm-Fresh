@@ -34,7 +34,7 @@ export default function Header() {
           alignItems: 'center',
         }}
       >
-        <div className="logo">🐄 Farmart</div>
+        <div className="logo">Farmart</div>
 
         <nav className={`nav-links ${open ? 'open' : ''}`}>
           <Link to="/about">About</Link>

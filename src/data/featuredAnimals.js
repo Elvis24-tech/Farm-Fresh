@@ -6,7 +6,7 @@ export const featuredAnimals = [
     age: '3 years',
     price: 2500,
     image: 'https://ruminants.ceva.pro/hs-fs/hubfs/iStock-1198993164%20(1).jpg?width=749&height=499&name=iStock-1198993164%20(1).jpg',
-    farmer: 'Green Valley Farm',
+    farmer: 'Limuru Dairy Farm',
     location: 'Limuru',
     rating: 4.8,
     category: 'cattle'
@@ -18,7 +18,7 @@ export const featuredAnimals = [
     age: '2 years',
     price: 450,
     image: 'https://agri-spareparts.com/wp-content/uploads/2023/12/dorper-1.webp',
-    farmer: 'Mountain Ridge Ranch',
+    farmer: 'Muranga Livestock',
     location: 'Muranga',
     rating: 4.9,
     category: 'sheep'
@@ -30,7 +30,7 @@ export const featuredAnimals = [
     age: '4 years',
     price: 3200,
     image: 'https://www.farmersjournal.ie/WEBFILES/000/867/050/2366741-867050.jpg',
-    farmer: 'Prairie Winds Farm',
+    farmer: 'Chackarancha Farm',
     location: 'Kikuyu',
     rating: 4.7,
     category: 'cattle'
@@ -42,7 +42,7 @@ export const featuredAnimals = [
     age: '1 year',
     price: 600,
     image: 'https://www.cabidigitallibrary.org/cms/10.1079/cabicompendium.80026/asset/4ba0526d-e2c3-4970-a995-9943c3cd2bac/assets/graphic/80026_03.jpg',
-    farmer: 'Sunny Acres Farm',
+    farmer: 'Naivasha Farms',
     location: 'Naivasha',
     rating: 4.6,
     category: 'pigs'
@@ -54,7 +54,7 @@ export const featuredAnimals = [
     age: '2.5 years',
     price: 750,
     image: 'https://www.woldswildlife.co.uk/images/uploads/animal_introduction_images/boer_vpse.jpeg',
-    farmer: 'Willow Creek Ranch',
+    farmer: 'Thika Goat Farm',
     location: 'Thika',
     rating: 4.8,
     category: 'goats'
@@ -66,7 +66,7 @@ export const featuredAnimals = [
     age: '2 years',
     price: 800,
     image: 'https://www.jafedelsu.org/wp-content/uploads/2020/03/kalahari-goat-1024x585-1.jpg',
-    farmer: 'Savannah Hills',
+    farmer: 'Savannah Pastures',
     location: 'Maasai Mara',
     rating: 4.7,
     category: 'goats'
@@ -78,7 +78,7 @@ export const featuredAnimals = [
     age: '6 months',
     price: 25,
     image: 'https://i1.wp.com/www.latiaagribusinesssolutions.com/wp-content/uploads/2018/03/layers.jpg?resize=750%2C428&ssl=1',
-    farmer: 'Featherdale Farm',
+    farmer: 'Juja Poultry Farm',
     location: 'Juja Farm',
     rating: 4.9,
     category: 'chicken'
@@ -90,7 +90,7 @@ export const featuredAnimals = [
     age: '1 year',
     price: 30,
     image: 'https://www.thehappychickencoop.com/wp-content/uploads/2021/03/Rhode-Island-Red.jpg',
-    farmer: 'Red Feather Poultry',
+    farmer: 'Meru Poultry Farm',
     location: 'Meru',
     rating: 4.8,
     category: 'chicken'
@@ -102,7 +102,7 @@ export const featuredAnimals = [
     age: '3 years',
     price: 500,
     image: 'https://www.raisingsheep.net/wp-content/uploads/2020/08/suffolk-sheep.jpg',
-    farmer: 'Highland Sheepfold',
+    farmer: 'Kisii Livestock',
     location: 'Kisii',
     rating: 4.7,
     category: 'sheep'
@@ -114,7 +114,7 @@ export const featuredAnimals = [
     age: '8 months',
     price: 550,
     image: 'https://northernnester.com/wp-content/uploads/2019/10/yorkshire-pig.jpg',
-    farmer: 'Oak Hollow Farms',
+    farmer: 'kiboko Farm',
     location: 'Kahawa West',
     rating: 4.6,
     category: 'pigs'
