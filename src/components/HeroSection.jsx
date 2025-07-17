@@ -8,10 +8,6 @@ const HeroSection = ({ searchTerm, setSearchTerm }) => {
     section?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleFarmerClick = () => {
-    alert("Redirecting to farmer registration (not implemented)");
-  };
-
   return (
     <section className="hero-section">
       <div className="hero-container">
@@ -33,7 +29,6 @@ const HeroSection = ({ searchTerm, setSearchTerm }) => {
         </div>
         <div className="hero-buttons">
           <Button size="lg" onClick={scrollToAnimals}>Browse Animals</Button>
-          <Button variant="outline" size="lg" onClick={handleFarmerClick}>I'm a Farmer</Button>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useCart } from '../context/CartContext';
@@ -7,9 +7,19 @@ import { useCart } from '../context/CartContext';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { cartItems } = useCart();
+  const location = useLocation();
 
   const handleLogin = () => {
     alert('Login functionality not implemented yet.');
+  };
+
+  const scrollToAnimals = () => {
+    const section = document.getElementById('featured-animals');
+    if (location.pathname === '/') {
+      section?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#featured-animals';
+    }
   };
 
   return (
@@ -27,15 +37,12 @@ export default function Header() {
         <div className="logo">🐄 Farmart</div>
 
         <nav className={`nav-links ${open ? 'open' : ''}`}>
-          <Link to="/">Animals</Link>
-          <Link to="/">Farmers</Link>
           <Link to="/about">About</Link>
 
           <Button variant="outline" onClick={handleLogin}>
             <User className="mr-2 h-4 w-4" /> Login
           </Button>
 
-          {/* ✅ Link to Cart Page */}
           <Link to="/cart">
             <Button>
               <div className="cart-badge-container">

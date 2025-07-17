@@ -16,7 +16,8 @@ const Home = () => {
     const matchesSearch =
       animal.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       animal.breed.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = selectedFilter === 'all' || animal.category === selectedFilter;
+    const matchesFilter =
+      selectedFilter === 'all' || animal.category === selectedFilter;
     return matchesSearch && matchesFilter;
   });
 
