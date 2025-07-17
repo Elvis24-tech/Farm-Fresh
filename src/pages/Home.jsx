@@ -6,6 +6,7 @@ import HeroSection from '../components/HeroSection';
 import CategoryFilter from '../components/CategoryFilter';
 import FeaturedAnimals from '../components/FeaturedAnimals';
 import StatsSection from '../components/StatsSection';
+import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -32,6 +33,7 @@ const Home = () => {
       />
       <FeaturedAnimals animals={filteredAnimals} />
       <StatsSection />
+      <ContactSection />
       <Footer />
     </>
   );
