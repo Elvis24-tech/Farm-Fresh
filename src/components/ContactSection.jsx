@@ -4,9 +4,12 @@ import emailjs from '@emailjs/browser';
 const ContactSection = () => {
   const form = useRef();
   const [message, setMessage] = useState('');
+  const [sending, setSending] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setSending(true);
+    setMessage('');
 
     emailjs
       .sendForm(
@@ -23,16 +26,21 @@ const ContactSection = () => {
         },
         (error) => {
           console.error(error.text);
-          setMessage(' Failed to send message. Please try again later.');
+          setMessage('❌ Failed to send message. Please try again later.');
         }
-      );
+      )
+      .finally(() => {
+        setSending(false);
+      });
   };
 
   return (
     <section className="section" id="contact">
       <div className="container">
         <h2 className="section-title text-center">Contact Us</h2>
-        <p className="section-subtitle text-center">Have questions, suggestions or complains? We’d love to hear from you.</p>
+        <p className="section-subtitle text-center">
+          Have questions, suggestions or complaints? We’d love to hear from you.
+        </p>
 
         <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="grid grid-2">
@@ -58,9 +66,11 @@ const ContactSection = () => {
             required
             className="input"
           ></textarea>
-          <button type="submit" className="button button-green">
-            Send Message
+
+          <button type="submit" className="button button-green" disabled={sending}>
+            {sending ? 'Sending...' : 'Send Message'}
           </button>
+
           {message && (
             <p
               style={{
@@ -73,19 +83,10 @@ const ContactSection = () => {
           )}
         </form>
 
-        <div
-          className="contact-details text-center"
-          style={{ marginTop: '3rem' }}
-        >
-          <p>
-            <strong>Email:</strong> support@farmart.com
-          </p>
-          <p>
-            <strong>Phone:</strong> +254 712 345678
-          </p>
-          <p>
-            <strong>Location:</strong> Nairobi, Kenya
-          </p>
+        <div className="contact-details text-center" style={{ marginTop: '3rem' }}>
+          <p><strong>Email:</strong> support@farmart.com</p>
+          <p><strong>Phone:</strong> +254 712 345678</p>
+          <p><strong>Location:</strong> Nairobi, Kenya</p>
         </div>
       </div>
     </section>
