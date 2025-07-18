@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext'; 
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { cartItems } = useCart();
+  const { user, logout } = useAuth(); 
+  const navigate = useNavigate();
   const location = useLocation();
-
-  const handleLogin = () => {
-    alert('Login functionality not implemented yet.');
-  };
 
   const scrollToAnimals = () => {
     const section = document.getElementById('featured-animals');
@@ -39,9 +38,16 @@ export default function Header() {
         <nav className={`nav-links ${open ? 'open' : ''}`}>
           <Link to="/about">About</Link>
 
-          <Button variant="outline" onClick={handleLogin}>
-            <User className="mr-2 h-4 w-4" /> Login
-          </Button>
+          {/*  Show Login or Logout based on user auth */}
+          {user ? (
+            <Button variant="outline" onClick={logout}>
+              <User className="mr-2 h-4 w-4" /> Logout
+            </Button>
+          ) : (
+            <Button variant="outline" onClick={() => navigate('/login')}>
+              <User className="mr-2 h-4 w-4" /> Login
+            </Button>
+          )}
 
           <Link to="/cart">
             <Button>

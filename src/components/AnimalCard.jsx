@@ -1,13 +1,23 @@
-import { Card, CardContent } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
-import { Clock, MapPin, Star } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
+import { Card, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
+import { Clock, MapPin, Star } from 'lucide-react';
 
 const AnimalCard = ({ animal }) => {
   const { addToCart } = useCart();
+  const { user, login } = useAuth();
 
-  // 🛠️ Fallback image support
+  const handleAddToCart = () => {
+    if (!user) {
+      alert('You must be logged in to add to cart.');
+      login();
+      return;
+    }
+    addToCart(animal);
+  };
+
   const image = Array.isArray(animal.images) ? animal.images[0] : animal.image;
 
   return (
@@ -23,7 +33,7 @@ const AnimalCard = ({ animal }) => {
         <div className="animal-rating"><Star className="icon star" /><span>{animal.rating}</span></div>
         <div className="animal-price-bar">
           <span className="animal-price">Ksh {animal.price.toLocaleString()}</span>
-          <Button size="sm" onClick={() => addToCart(animal)}>Add to Cart</Button>
+          <Button size="sm" onClick={handleAddToCart}>Add to Cart</Button>
         </div>
       </CardContent>
     </Card>
