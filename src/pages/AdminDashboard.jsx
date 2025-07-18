@@ -9,19 +9,19 @@ export default function AdminDashboard() {
   const allowedEmail = 'elvis@farmart.com';
 
   useEffect(() => {
-    if (!user) return; // wait until user is checked
+    if (!user) return; 
     if (user.email !== allowedEmail) {
       navigate('/');
     }
   }, [user, navigate]);
 
   const handleLogout = async () => {
-    await logout();         // ⛔ Sign out from Firebase
-    navigate('/login');     // ✅ Redirect to login
+    await logout();         
+    navigate('/login');     
   };
 
   if (!user || user.email !== allowedEmail) {
-    return null; // prevent flicker while redirecting
+    return null; 
   }
 
   return (
