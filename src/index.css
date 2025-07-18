@@ -541,7 +541,6 @@ footer .bottom {
   margin-bottom: 0.75rem;
 }
 
-/* Stats Section */
 .stats-section {
   background: #ecfdf5;
   padding: 4rem 2rem;
@@ -582,8 +581,78 @@ footer .bottom {
   font-weight: 500;
   color: var(--text-muted);
 }
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #f0fdf4, #ffffff);
+  padding: 2rem;
+}
 
-/* Utilities */
+.login-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-color);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
 .text-center { text-align: center; }
 .grid { display: grid; gap: 2rem; }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); }

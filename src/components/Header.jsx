@@ -4,7 +4,7 @@ import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import logo from '../assets/farmartlogo.png'; // ✅ Ensure this path matches your actual file
+import logo from '../assets/farmartlogo.png'; // ✅ Make sure this image exists
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -34,7 +34,7 @@ export default function Header() {
           alignItems: 'center',
         }}
       >
-        {/* ✅ Logo Image + Text */}
+        {/* ✅ Logo image with name */}
         <Link
           to="/"
           style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
@@ -54,10 +54,16 @@ export default function Header() {
           </span>
         </Link>
 
+        {/* ✅ Main navigation */}
         <nav className={`nav-links ${open ? 'open' : ''}`}>
           <Link to="/about">About</Link>
 
-          {/* 🔐 Show Login or Logout based on user auth */}
+          {/* 🧑‍🌾 Admin link if specific email */}
+          {user?.email === 'elvis@farmart.com' && (
+            <Link to="/admin">Admin</Link>
+          )}
+
+          {/* 🔐 Login or Logout */}
           {user ? (
             <Button variant="outline" onClick={logout}>
               <User className="mr-2 h-4 w-4" /> Logout
@@ -68,6 +74,7 @@ export default function Header() {
             </Button>
           )}
 
+          {/* 🛒 Cart */}
           <Link to="/cart">
             <Button>
               <div className="cart-badge-container">
@@ -81,6 +88,7 @@ export default function Header() {
           </Link>
         </nav>
 
+        {/* ☰ Hamburger button */}
         <Button
           variant="ghost"
           onClick={() => setOpen(!open)}

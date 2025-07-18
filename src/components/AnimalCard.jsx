@@ -1,3 +1,4 @@
+// src/components/AnimalCard.jsx
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { Card, CardContent } from './ui/card';
@@ -7,14 +8,21 @@ import { Clock, MapPin, Star } from 'lucide-react';
 
 const AnimalCard = ({ animal }) => {
   const { addToCart } = useCart();
-  const { user, login } = useAuth();
+  const { user, loginWithGoogle } = useAuth();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (!user) {
-      alert('You must be logged in to add to cart.');
-      login();
+      alert('Please sign in with Google to add items to your cart.');
+      await loginWithGoogle();
       return;
     }
+
+    // ✅ Optional: prevent admin from adding to cart
+    if (user.email === 'elvis@farmart.com') {
+      alert('Admin cannot add items to cart.');
+      return;
+    }
+
     addToCart(animal);
   };
 

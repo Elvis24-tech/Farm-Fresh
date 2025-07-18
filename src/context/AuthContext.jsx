@@ -1,8 +1,15 @@
+// src/context/AuthContext.jsx
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase';
-import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import {
+  onAuthStateChanged,
+  signOut,
+  signInWithPopup,
+  GoogleAuthProvider
+} from 'firebase/auth';
 
 const AuthContext = createContext();
+const provider = new GoogleAuthProvider();
 
 export const useAuth = () => useContext(AuthContext);
 
@@ -10,19 +17,28 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, setUser);
+    const unsub = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+    });
     return () => unsub();
   }, []);
 
-  const login = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
+  const loginWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+    } catch (err) {
+      console.error('Google Sign-In Error:', err);
+    }
   };
 
-  const logout = () => signOut(auth);
+  const logout = async () => {
+    await signOut(auth);
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, setUser, logout, loginWithGoogle }}>
       {children}
     </AuthContext.Provider>
   );
