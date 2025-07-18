@@ -22,7 +22,7 @@ const AnimalCard = ({ animal }) => {
         <div className="animal-detail"><MapPin className="icon" />{animal.farmer}, {animal.location}</div>
         <div className="animal-rating"><Star className="icon star" /><span>{animal.rating}</span></div>
         <div className="animal-price-bar">
-          <span className="animal-price">${animal.price.toLocaleString()}</span>
+          <span className="animal-price">Ksh {animal.price.toLocaleString()}</span>
           <Button size="sm" onClick={() => addToCart(animal)}>Add to Cart</Button>
         </div>
       </CardContent>
