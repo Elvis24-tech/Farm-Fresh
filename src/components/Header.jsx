@@ -3,12 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext'; 
+import { useAuth } from '../context/AuthContext';
+import logo from '../assets/farmartlogo.png'; // ✅ Ensure this path matches your actual file
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { cartItems } = useCart();
-  const { user, logout } = useAuth(); 
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -33,12 +34,30 @@ export default function Header() {
           alignItems: 'center',
         }}
       >
-        <div className="logo">Farmart</div>
+        {/* ✅ Logo Image + Text */}
+        <Link
+          to="/"
+          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
+        >
+          <img
+            src={logo}
+            alt="Farmart Logo"
+            style={{
+              height: '40px',
+              width: '40px',
+              objectFit: 'cover',
+              borderRadius: '50%',
+            }}
+          />
+          <span className="logo" style={{ fontSize: '1.75rem', fontWeight: '700', color: 'var(--primary-color)' }}>
+            Farmart
+          </span>
+        </Link>
 
         <nav className={`nav-links ${open ? 'open' : ''}`}>
           <Link to="/about">About</Link>
 
-          {/*  Show Login or Logout based on user auth */}
+          {/* 🔐 Show Login or Logout based on user auth */}
           {user ? (
             <Button variant="outline" onClick={logout}>
               <User className="mr-2 h-4 w-4" /> Logout
