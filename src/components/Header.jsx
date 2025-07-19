@@ -4,7 +4,7 @@ import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import logo from '../assets/farmartlogo.png'; // ✅ Make sure this image exists
+import logo from '../assets/farmartlogo.png';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -23,78 +23,76 @@ export default function Header() {
   };
 
   return (
-    <header>
-      <div
-        style={{
-          maxWidth: 1120,
-          margin: '0 auto',
-          padding: '1rem 2rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        {/* ✅ Logo image with name */}
+    <header className="bg-white border-b border-green-200 shadow-sm sticky top-0 z-50">
+      <div className="max-w-[1120px] mx-auto px-8 py-4 flex justify-between items-center">
+        {/* Logo */}
         <Link
           to="/"
-          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
+          className="flex items-center gap-2 no-underline"
         >
           <img
             src={logo}
             alt="Farmart Logo"
-            style={{
-              height: '40px',
-              width: '40px',
-              objectFit: 'cover',
-              borderRadius: '50%',
-            }}
+            className="h-10 w-10 object-cover rounded-full"
           />
-          <span className="logo" style={{ fontSize: '1.75rem', fontWeight: '700', color: 'var(--primary-color)' }}>
+          <span className="text-3xl font-bold text-green-600">
             Farmart
           </span>
         </Link>
 
-        {/* ✅ Main navigation */}
-        <nav className={`nav-links ${open ? 'open' : ''}`}>
-          <Link to="/about">About</Link>
+        <nav className={`${open ? 'flex' : 'hidden'} md:flex items-center gap-5 
+          md:static absolute top-full left-0 right-0 bg-white md:bg-transparent
+          flex-col md:flex-row md:gap-5 p-4 md:p-0`}>
+          
+          <Link 
+            to="/about" 
+            className="text-gray-700 font-medium hover:text-green-600 transition-colors no-underline"
+          >
+            About
+          </Link>
 
-          {/* 🧑‍🌾 Admin link if specific email */}
           {user?.email === 'elvis@farmart.com' && (
-            <Link to="/admin">Admin</Link>
+            <Link 
+              to="/admin"
+              className="text-gray-700 font-medium hover:text-green-600 transition-colors no-underline"
+            >
+              Admin
+            </Link>
           )}
 
-          {/* 🔐 Login or Logout */}
+          {/* Login/Logout */}
           {user ? (
-            <Button variant="outline" onClick={logout}>
-              <User className="mr-2 h-4 w-4" /> Logout
+            <Button variant="outline" onClick={logout} className="flex items-center gap-2">
+              <User className="h-4 w-4" /> Logout
             </Button>
           ) : (
-            <Button variant="outline" onClick={() => navigate('/login')}>
-              <User className="mr-2 h-4 w-4" /> Login
+            <Button variant="outline" onClick={() => navigate('/login')} className="flex items-center gap-2">
+              <User className="h-4 w-4" /> Login
             </Button>
           )}
 
-          {/* 🛒 Cart */}
           <Link to="/cart">
-            <Button>
-              <div className="cart-badge-container">
-                <ShoppingCart />
+            <Button className="flex items-center gap-2">
+              <div className="relative">
+                <ShoppingCart className="h-4 w-4" />
                 {cartItems.length > 0 && (
-                  <span className="cart-item-count">{cartItems.length}</span>
+                  <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs font-semibold 
+                    px-1.5 py-0.5 rounded-full leading-none min-w-[16px] h-4 flex items-center justify-center">
+                    {cartItems.length}
+                  </span>
                 )}
               </div>
-              <span className="ml-2">Cart</span>
+              <span>Cart</span>
             </Button>
           </Link>
         </nav>
 
-        {/* ☰ Hamburger button */}
         <Button
           variant="ghost"
           onClick={() => setOpen(!open)}
-          className="hamburger-btn"
+          className="md:hidden"
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
     </header>

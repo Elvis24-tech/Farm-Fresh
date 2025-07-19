@@ -7,28 +7,48 @@ export default function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <section className="section text-center">
-        <h2 className="section-title">Your Cart is Empty</h2>
-        <p className="section-subtitle">Browse animals and add them to your cart.</p>
+      <section className="py-16 px-4 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          Your Cart is Empty
+        </h2>
+        <p className="text-lg text-gray-600">
+          Browse animals and add them to your cart.
+        </p>
       </section>
     );
   }
 
   return (
-    <section className="section">
-      <div className="container">
-        <h2 className="section-title">Your Cart</h2>
-        <div className="animal-grid">
+    <section className="py-16 px-4">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+          Your Cart
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {cartItems.map((item) => (
-            <Card key={item.id}>
-              <div className="animal-image-container">
-                <img src={item.image} alt={item.name} className="animal-image" />
+            <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.name} 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
+                />
               </div>
-              <CardContent>
-                <h3 className="animal-name">{item.name}</h3>
-                <p className="animal-detail">{item.breed} • {item.age}</p>
-                <p className="animal-price">${item.price.toLocaleString()}</p>
-                <Button variant="outline" onClick={() => removeFromCart(item.id)}>
+              <CardContent className="p-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                  {item.name}
+                </h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  {item.breed} • {item.age}
+                </p>
+                <p className="text-xl font-bold text-green-600 mb-3">
+                  ${item.price.toLocaleString()}
+                </p>
+                <Button 
+                  variant="outline" 
+                  onClick={() => removeFromCart(item.id)}
+                  className="w-full"
+                >
                   Remove
                 </Button>
               </CardContent>

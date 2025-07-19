@@ -32,35 +32,53 @@ export default function Login() {
   };
 
   return (
-    <section className="login-container">
-      <div className="login-card">
-        <h2 className="login-title">Welcome Back 👋</h2>
-        <p className="login-subtitle">Sign in to continue to <span className="highlight">Farmart</span>.</p>
+    <section className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            Welcome Back 👋
+          </h2>
+          <p className="text-gray-600">
+            Sign in to continue to{' '}
+            <span className="text-green-600 font-semibold">Farmart</span>.
+          </p>
+        </div>
 
-        <form onSubmit={handleLogin} className="login-form">
-          <input
-            type="email"
-            placeholder="Email"
-            className="input"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <form onSubmit={handleLogin} className="space-y-6">
+          <div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="input"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-          <button type="submit" className="button button-green" style={{ width: '100%' }}>
+          <button 
+            type="submit" 
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+          >
             Sign In
           </button>
 
-          {error && <p className="error-message">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-sm text-center bg-red-50 p-3 rounded-lg">
+              {error}
+            </p>
+          )}
         </form>
       </div>
     </section>
