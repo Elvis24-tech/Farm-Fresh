@@ -25,67 +25,49 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>Welcome, Admin</h1>
-      <p style={styles.subtext}>You are logged in as: {user.email}</p>
+    <div className="max-w-4xl mx-auto mt-16 p-8 text-center">
+      <h1 className="text-4xl font-bold text-green-600 mb-4">
+        Welcome, Admin
+      </h1>
+      <p className="text-gray-500 mb-8">
+        You are logged in as: {user.email}
+      </p>
 
-      <button onClick={handleLogout} style={styles.logoutButton}>
+      <button 
+        onClick={handleLogout} 
+        className="mb-8 px-4 py-2 bg-red-500 hover:bg-red-600 text-white border-none rounded-lg cursor-pointer text-base transition-colors"
+      >
         Logout
       </button>
 
-      <div style={styles.cardContainer}>
-        <div style={styles.card}>
-          <h2>Manage Animals</h2>
-          <p>Add, update, or remove animals for sale.</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            Manage Animals
+          </h2>
+          <p className="text-gray-600">
+            Add, update, or remove animals for sale.
+          </p>
         </div>
-        <div style={styles.card}>
-          <h2>View Orders</h2>
-          <p>Check incoming customer orders and statuses.</p>
+        
+        <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            View Orders
+          </h2>
+          <p className="text-gray-600">
+            Check incoming customer orders and statuses.
+          </p>
         </div>
-        <div style={styles.card}>
-          <h2>Profile</h2>
-          <p>Update your admin profile information.</p>
+        
+        <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            Profile
+          </h2>
+          <p className="text-gray-600">
+            Update your admin profile information.
+          </p>
         </div>
       </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    maxWidth: '900px',
-    margin: '4rem auto',
-    padding: '2rem',
-    textAlign: 'center',
-  },
-  heading: {
-    fontSize: '2.5rem',
-    color: '#16a34a',
-    marginBottom: '1rem',
-  },
-  subtext: {
-    color: '#6b7280',
-    marginBottom: '2rem',
-  },
-  logoutButton: {
-    marginBottom: '2rem',
-    padding: '0.5rem 1rem',
-    background: '#ef4444',
-    color: 'white',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontSize: '1rem',
-  },
-  cardContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '1.5rem',
-  },
-  card: {
-    padding: '1.5rem',
-    background: '#f9f9f9',
-    borderRadius: '10px',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
-  },
-};

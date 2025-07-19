@@ -2,20 +2,24 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 
 const CategoryFilter = ({ categories, selectedFilter, onFilterChange }) => (
-  <section className="category-filter-section">
-    <div className="category-buttons">
-      {categories.map((category) => (
-        <Button
-          key={category.id}
-          variant={selectedFilter === category.id ? "default" : "outline"}
-          size="sm"
-          onClick={() => onFilterChange(category.id)}
-          className="category-button"
-        >
-          {category.name}
-          <Badge variant="secondary" className="category-badge">{category.count}</Badge>
-        </Button>
-      ))}
+  <section className="py-8 px-8 bg-gray-50">
+    <div className="max-w-6xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-3">
+        {categories.map((category) => (
+          <Button
+            key={category.id}
+            variant={selectedFilter === category.id ? "default" : "outline"}
+            size="sm"
+            onClick={() => onFilterChange(category.id)}
+            className="flex items-center gap-2 px-4 py-2 rounded-full"
+          >
+            {category.name}
+            <Badge variant="secondary" className="ml-1">
+              {category.count}
+            </Badge>
+          </Button>
+        ))}
+      </div>
     </div>
   </section>
 );
