@@ -5,7 +5,8 @@ const About = () => {
         <h2 className="text-4xl font-bold text-gray-900 mb-6">
           About Farmart
         </h2>
-        <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+        <p className="text-xl text-green-600 mb-8 leading-relaxed">
+
           Farmart is a modern e-commerce platform that connects farmers directly with buyers,
           eliminating middlemen and maximizing profits for hardworking farmers.
         </p>

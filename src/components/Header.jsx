@@ -25,7 +25,6 @@ export default function Header() {
   return (
     <header className="bg-white border-b border-green-200 shadow-sm sticky top-0 z-50">
       <div className="max-w-[1120px] mx-auto px-8 py-4 flex justify-between items-center">
-        {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2 no-underline"
