@@ -29,7 +29,7 @@ export default function AdminDashboard() {
       <h1 className="text-4xl font-bold text-green-600 mb-4">
         Welcome, Admin
       </h1>
-      <p className="text-gray-500 mb-8">
+      <p className="text-blue-900 mb-8">
         You are logged in as: {user.email}
       </p>
 
@@ -42,7 +42,7 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <h2 className="text-xl font-semibold text-purple-600 mb-2">
             Manage Animals
           </h2>
           <p className="text-gray-600">
@@ -51,7 +51,7 @@ export default function AdminDashboard() {
         </div>
         
         <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <h2 className="text-xl font-semibold text-green-600 mb-2">
             View Orders
           </h2>
           <p className="text-gray-600">
@@ -60,7 +60,7 @@ export default function AdminDashboard() {
         </div>
         
         <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <h2 className="text-xl font-semibold text-yellow-500 mb-2">
             Profile
           </h2>
           <p className="text-gray-600">
